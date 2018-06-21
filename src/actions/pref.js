@@ -1,5 +1,7 @@
-import TodoDispatcher     from '../dispatcher';
 import axios              from 'axios';
+
+import TodoDispatcher     from '../dispatcher';
+
 
 const ADD_TODO = 'ADD_TODO';
 const GET_TODO = 'GET_TODO';
@@ -29,10 +31,11 @@ export function addTask(text) {
         .then(TodoDispatcher.dispatch({ type: DELETE_TODO, tasks: task_id }))
   }
 
-  export function fetchTodos() {
-    return dispatch =>
-      axios.get('http://127.0.0.1:4000/')
-        .then((response) => {
-            TodoDispatcher.dispatch({ type: SELECT_ALL_TODO, task_id: response.data.data })
-        })
-  }
+export function fetchTodos() {
+  console.log('ok')
+  const response = {task_id:1, description: 'my little funy'}
+      TodoDispatcher.dispatch({
+        type: GET_TODO,
+        tasks: response,
+      });
+}

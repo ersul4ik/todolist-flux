@@ -17,7 +17,7 @@ class TodoStore extends EventEmitter {
             url: current_url,
             params: { description: text },
         }).then(response => {
-            this.emit("change");
+            return 201
         });
         return "200"
     }
@@ -29,9 +29,8 @@ class TodoStore extends EventEmitter {
             method: 'post',
             url: url,
             params: { id: task_id },
-        }).then(response => {
-            console.log(response)
-        });
+        })
+        window.location.reload();
         return "200"
     }
 

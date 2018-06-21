@@ -20,9 +20,8 @@ export default class Todos extends React.Component {
 
     }
 
-    componentDidMount() { // is performed when the component is loaded
-        console.log('this is state', this.state.todos)
-
+    async componentDidMount() { // is performed when the component is loaded
+        await TodoAction.getApiTodos()
     }
 
     async componentWillMount() { // Слушает не случилось ли изменений.
@@ -33,7 +32,7 @@ export default class Todos extends React.Component {
         });
         TodoStore.on("deleted", () => {
             this.setState({
-                todos: TodoStore.receiveAll(),  // Предоставляет текущее данные
+                todos: TodoStore.receiveAll(),  // Предоставляет данные из БД
             })
         });
         this.setState = ({
@@ -47,12 +46,11 @@ export default class Todos extends React.Component {
     };
 
     handleDeleteTodo(event) { // is remove task 
-        event.preventDefault;
         TodoAction.deleteTodo(event);
     }
 
     handleSubmit(event) { // is sending data to store
-        event.preventDefault();
+        event.preventDefault;
         if (!descripton.length) {
             return 403
         }

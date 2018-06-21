@@ -23,7 +23,6 @@ class TodoStore extends EventEmitter {
     }
 
     async deleteTodo(task_id) { // удаляет переданный таск
-        console.log("delete", task_id);
         let url = "http://127.0.0.1:4000/pop";
         await axios({
             method: 'post',
@@ -37,7 +36,6 @@ class TodoStore extends EventEmitter {
     async receiveAll() {  // Выдааёт все задачи из БД
         let res = await axios.get("http://127.0.0.1:4000/");
         this.todos = res.data.data;
-        console.log(this.todos)
         this.emit("change");
         return this.todos;
     }

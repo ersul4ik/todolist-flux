@@ -3,7 +3,6 @@ import React from 'react'
 export default class TodoList extends React.Component{
    
     render(){
-        console.log('fucking chade??? ', this.props.todos)
         const todos = this.props.todos
         return(
         <div>

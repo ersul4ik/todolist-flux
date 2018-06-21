@@ -7,10 +7,10 @@ class TodoStore extends EventEmitter {
 
     constructor() {
         super();
-        this.todos = [];
+        this.todos = []; // от сюда берут данные контейнеры. 
     }
 
-    async createTodo(text) {
+    async createTodo(text) { // создаёт таск, id is autoIncrement
         let current_url = "http://127.0.0.1:4000/todos";
         await axios({
             method: 'post',
@@ -22,7 +22,7 @@ class TodoStore extends EventEmitter {
         return "200"
     }
 
-    async deleteTodo(task_id) {
+    async deleteTodo(task_id) { // удаляет переданный таск
         console.log("delete", task_id);
         let url = "http://127.0.0.1:4000/pop";
         await axios({
@@ -34,8 +34,7 @@ class TodoStore extends EventEmitter {
         return "200"
     }
 
-
-    async receiveAll() {  // Выдааёт все задачи
+    async receiveAll() {  // Выдааёт все задачи из БД
         let res = await axios.get("http://127.0.0.1:4000/");
         this.todos = res.data.data;
         console.log(this.todos)

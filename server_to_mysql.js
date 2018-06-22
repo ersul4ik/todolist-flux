@@ -37,7 +37,7 @@ app.post('/todos', function (req, res) {
     })
         });
 
-app.post('/pop', (req, res) => {
+app.delete('/pop', (req, res) => {
     console.log(req.query.id);
    connection.query('DELETE FROM `task` WHERE `task_id`=?', [req.query.id], function (error, results, fields) {
         if (error) {

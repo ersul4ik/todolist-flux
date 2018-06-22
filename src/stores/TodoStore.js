@@ -25,7 +25,7 @@ class TodoStore extends EventEmitter {
     async deleteTodo(task_id) { // удаляет переданный таск
         let url = "http://127.0.0.1:4000/pop";
         await axios({
-            method: 'post',
+            method: 'delete',
             url: url,
             params: { id: task_id },
         })

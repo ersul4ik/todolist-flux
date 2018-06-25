@@ -11,7 +11,7 @@ npm install
 npm start
 ```
 ## Use:
-Visit to * [127.0.0.1:8080] and see your application
+Visit to * [http://127.0.0.1:8080](http://127.0.0.1:8080) and see your application
 
 ## Running the tests:
 Tests are run from the command line npm test. To automatically run the tests, you need to set the --watch flag

@@ -1,4 +1,7 @@
 # Todo List with React + React bootstrap + express + Async
+
+[![Heimdall Scanner](https://heimdall.maddevs.io/badge/github/maddevsio/comedian)](https://heimdall.maddevs.io/report/github/maddevsio/comedian)
+
 A simple real-time application with the ability to work with DB.
 
 ## Installation:
